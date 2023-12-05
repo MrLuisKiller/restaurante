@@ -18,7 +18,7 @@ function Header() {
                             </NavLink>
                         </div>
                         <div className='d-flex justify-content-center align-items-center'>
-                            <h1>FLDSMDFR Restaurante</h1>
+                            <h1 className='Potta-One'>FLDSMDFR Restaurante</h1>
                         </div>
                         <ul className="navbar-nav d-flex justify-content-center align-items-center">
                             <li className="nav-item">
