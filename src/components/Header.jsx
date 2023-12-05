@@ -1,9 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.css'
-import logo from '../assets/FLDSMDFR.png'
 
-function Header() {
+const Header = () => {
     return (
         <nav className='navbar navbar-expand-lg bg-body-tertiary'>
             <div className="container-fluid">
@@ -14,7 +13,7 @@ function Header() {
                     <div className="collapse navbar-collapse" id="navbar-toggler">
                         <div className='d-flex justify-content-center align-items-center'>
                             <NavLink to="/" className='navbar-brand'>
-                                <img src={logo} alt="Logo" className='logo-image' />
+                                <img src='./src/assets/FLDSMDFR.png' alt="Logo" className='logo-image' />
                             </NavLink>
                         </div>
                         <div className='d-flex justify-content-center align-items-center'>
@@ -30,9 +29,9 @@ function Header() {
                             <li className="nav-item">
                                 <NavLink to="/reservar" className="nav-link">Reservar</NavLink>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <NavLink to="/reservas" className="nav-link">Reservas</NavLink>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>

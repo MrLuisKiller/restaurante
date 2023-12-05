@@ -1,7 +1,7 @@
 import React from 'react'
 import './Footer.css'
 
-function Footer() {
+const Footer = () => {
     return (
         <footer className='container-fluid border-top dark d-flex align-items-center justify-content-between'>
             <div className='copyright'>Creado por Luis Valenzuela (2023) &#169;</div>
