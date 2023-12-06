@@ -13,7 +13,7 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbar-toggler">
                         <div className='d-flex justify-content-center align-items-center'>
                             <NavLink to="/" className='navbar-brand'>
-                                <img src='./src/assets/FLDSMDFR.png' alt="Logo" className='logo-image' />
+                                <img src='./assets/FLDSMDFR.png' alt="Logo" className='logo-image' />
                             </NavLink>
                         </div>
                         <div className='d-flex justify-content-center align-items-center'>
