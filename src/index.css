@@ -25,3 +25,7 @@ footer {
 @media screen and (max-width: 810px) {
     body { margin-bottom: 15%; }
 }
+
+@media screen and (max-width: 500px) {
+    body { margin-bottom: 35%; }
+}

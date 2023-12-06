@@ -17,12 +17,12 @@ const Nosotros = () => {
                             <p className="card-text mb-5">Todo lo que quieras, aqui lo puedes conseguir.</p>
                             <div className='row d-flex justify-content-center'>
                                 <div className='col-6 row text-center'>
-                                    <div className="col-5 border-top border-2">
+                                    <div className="col-lg-5 border-top border-2">
                                         <h4>Nacimiento</h4>
                                         <p><b>2009</b></p>
                                     </div>
                                     <div className="col-1"></div>
-                                    <div className="col-5 border-top border-2">
+                                    <div className="col-lg-5 border-top border-2">
                                         <h4>Ubicación</h4>
                                         <p><b>Sonora, México</b></p>
                                     </div>
