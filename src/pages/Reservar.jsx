@@ -23,7 +23,7 @@ const Reservar = () => {
     const handleInputChange = e => {
         const { name, value } = e.target
         if (name == 'fecha') {
-            const hoy = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() < 10 ? '0' + date.getDate() : date - getDate()}`
+            const hoy = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}`
             setActivo(value >= hoy)
         }
         setFormulario({ ...formulario, [name]: value })
