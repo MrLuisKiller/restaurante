@@ -5,10 +5,14 @@ import { collection, onSnapshot, addDoc, query } from 'firebase/firestore'
 const Reservar = () => {
     const date = new Date()
 
-    const [formulario, setFormulario] = useState([])
+    const [formulario, setFormulario] = useState({hora: '1:00'})
     const [datosTabla, setDatosTabla] = useState([])
     const [activo, setActivo] = useState(true)
 
+    const nombreTxt = document.getElementById('nombre')
+    const apellidoTxt = document.getElementById('apellido')
+    const cantidadTxt = document.getElementById('cantidad')
+    
     const cargarDatos = async () => {
         onSnapshot(query(collection(db, 'reservaciones')), querySnapshot => {
             let datosFormateados = querySnapshot.docs.map(doc => doc.data())
@@ -22,18 +26,24 @@ const Reservar = () => {
 
     const handleInputChange = e => {
         const { name, value } = e.target
-        if (name == 'fecha') {
-            const hoy = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}`
-            setActivo(value >= hoy)
+        let fecha = false
+        if (name != 'hora') {
+            if (name == 'fecha') {
+                const hoy = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}`
+                fecha = value >= hoy
+            }
+            setActivo(!(nombreTxt.validity.valid && apellidoTxt.validity.valid && cantidadTxt.validity.valid && fecha))
         }
-        setFormulario({ ...formulario, [name]: value })
+        setFormulario({...formulario, [name]: value})
     }
 
     const guardarReservacion = async e => {
         e.preventDefault()
         await addDoc(collection(db, 'reservaciones'), formulario)
-        setFormulario([])
+        setFormulario({hora: '1:00'})
         document.querySelector('form').reset()
+        document.getElementById('nombre').focus()
+        setActivo(true)
     }
 
     return (
@@ -46,19 +56,19 @@ const Reservar = () => {
                             <div className="col-lg-4 col-12">
                                 <div className="input-group input-group-lg mb-3">
                                     <span className="input-group-text">Nombre</span>
-                                    <input type="text" name="nombre" id="nombre" className="form-control" value={formulario.nombre} onChange={handleInputChange} autoComplete='off' />
+                                    <input type="text" name="nombre" id="nombre" className="form-control" value={formulario.nombre} onChange={handleInputChange} autoComplete='off' required />
                                 </div>
                             </div>
                             <div className="col-lg-4 col-12">
                                 <div className="input-group input-group-lg mb-3">
                                     <span className="input-group-text">Apellido</span>
-                                    <input type="text" name="apellido" id="apellido" className="form-control" value={formulario.apellido} onChange={handleInputChange} autoComplete='off' />
+                                    <input type="text" name="apellido" id="apellido" className="form-control" value={formulario.apellido} onChange={handleInputChange} autoComplete='off' required />
                                 </div>
                             </div>
                             <div className="col-lg-4 col-12">
                                 <div className="input-group input-group-lg mb-3">
                                     <span className="input-group-text">Cantidad</span>
-                                    <input type="number" name="cantidad" id="cantidad" className="form-control" value={formulario.cantidad} onChange={handleInputChange} autoComplete='off' />
+                                    <input type="number" name="cantidad" id="cantidad" className="form-control" value={formulario.cantidad} onChange={handleInputChange} autoComplete='off' required />
                                 </div>
                             </div>
                             <div className="col-lg-5 col-12">
@@ -70,25 +80,24 @@ const Reservar = () => {
                             <div className="col-lg-5 col-12">
                                 <div className="input-group input-group-lg mb-3">
                                     <span className="input-group-text">Hora</span>
-                                    <select name="hora" id="hora" className="form-select" value={formulario.hora} onChange={handleInputChange} disabled={!activo}>
-                                        <option selected value=''>Escoge</option>
-                                        <option value="1:00">1:00</option>
-                                        <option value="2:00">2:00</option>
-                                        <option value="3:00">3:00</option>
-                                        <option value="4:00">4:00</option>
-                                        <option value="5:00">5:00</option>
-                                        <option value="6:00">6:00</option>
-                                        <option value="7:00">7:00</option>
-                                        <option value="8:00">8:00</option>
-                                        <option value="9:00">9:00</option>
-                                        <option value="10:00">10:00</option>
-                                        <option value="11:00">11:00</option>
+                                    <select name="hora" id="hora" className="form-select" value={formulario.hora} onChange={handleInputChange}>
+                                        <option value="1:00">1:00 P.M.</option>
+                                        <option value="2:00">2:00 P.M.</option>
+                                        <option value="3:00">3:00 P.M.</option>
+                                        <option value="4:00">4:00 P.M.</option>
+                                        <option value="5:00">5:00 P.M.</option>
+                                        <option value="6:00">6:00 P.M.</option>
+                                        <option value="7:00">7:00 P.M.</option>
+                                        <option value="8:00">8:00 P.M.</option>
+                                        <option value="9:00">9:00 P.M.</option>
+                                        <option value="10:00">10:00 P.M.</option>
+                                        <option value="11:00">11:00 P.M.</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div className="d-grip gap-1 mb-2">
-                            <button type="submit" className="btn btn-outline-success btn-lg w-100" disabled={!activo}>Reservar</button>
+                            <button type="submit" className="btn btn-outline-success btn-lg w-100" disabled={activo}>Reservar</button>
                         </div>
                     </form>
                     <table className="table table-striped text-center">
@@ -110,7 +119,7 @@ const Reservar = () => {
                                     <td>{dato.apellido}</td>
                                     <td>{dato.cantidad}</td>
                                     <td>{dato.fecha}</td>
-                                    <td>{dato.hora}</td>
+                                    <td>{`${dato.hora} P.M.`}</td>
                                 </tr>
                             ))}
                             {datosTabla.length == 0 && (
