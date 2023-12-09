@@ -1,0 +1,62 @@
+[
+    {
+        "comida": "Shrimp Ice Cream",
+        "descripcion": "Helado de camarones con salsa de mango.",
+        "imagen": "Shrimp-Ice-Cream.webp",
+        "precio": 30
+    },
+    {
+        "comida": "Cheeseburger Tacodilla",
+        "descripcion": "Una fusión única de hamburguesa con queso y quesadilla, rellena de carne molida, queso y verduras.",
+        "imagen": "Cheeseburger-Tacodilla.webp",
+        "precio": 80
+    },
+    {
+        "comida": "Spaghetti Tacos",
+        "descripcion": "Tacos de espagueti con salsa de tomate y queso rallado.",
+        "imagen": "Spaghetti-Tacos.webp",
+        "precio": 130
+    },
+    {
+        "comida": "Chickentail Parmesan",
+        "descripcion": "Pechuga de pollo empanizada con queso mozzarella y salsa de tomate, acompañada de espagueti.",
+        "imagen": "Chickentail-Parmesan.webp",
+        "precio": 180
+    },
+    {
+        "comida": "Tacodile Supreme",
+        "descripcion": "Un taco gigante relleno de carne molida sazonada, lechuga, queso y una cucharada de crema agria.",
+        "imagen": "Tacodile-Supreme.webp",
+        "precio": 85
+    },
+    {
+        "comida": "Meatball sub",
+        "descripcion": "Submarino relleno de albóndigas de carne de res, queso mozzarella y salsa de tomate.",
+        "imagen": "Meatball-Sub.webp",
+        "precio": 120
+    },
+    {
+        "comida": "Hot Dog Spaghetti",
+        "descripcion": "Un plato divertido con espaguetis envueltos alrededor de un hot dog, servidos con salsa de tomate y mostaza.",
+        "imagen": "Hot-Dog-Spaghetti.webp",
+        "precio": 55
+    },
+    {
+        "comida": "Flinstones Burger",
+        "descripcion": "Hamburguesa con carne de res, queso cheddar, tocino, lechuga y tomate.",
+        "imagen": "Flintstones-Burger.webp",
+        "precio": 150
+    },
+    {
+        "comida": "Sardine Sundae",
+        "descripcion": "Helado de sardinas con salsa de caramelo.",
+        "imagen": "Sardine-Sundae.webp",
+        "precio": 45
+    },
+    {
+        "comida": "Cheespider Burger",
+        "descripcion": "Una hamburguesa monstruosa con hamburguesa de ternera, queso derretido y ocho patas de araña crujientes hechas con palitos de queso frito.",
+        "imagen": "Cheespider-Burger.webp",
+        "precio": 75
+    }
+]
